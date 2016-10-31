@@ -1,0 +1,36 @@
+{
+	"id": "53c981e2-619b-4090-8731-277d1596e90a",
+	"fields": [
+		{
+			"name": "program_id",
+			"type": "text",
+			"read": true,
+			"write": true,
+			"primary": true,
+			"unique": true,
+			"required": true
+		},
+		{
+			"name": "name",
+			"type": "text",
+			"read": true,
+			"write": true
+		},
+		{
+			"name": "description",
+			"type": "text",
+			"read": true,
+			"write": true
+		}
+	],
+	"isRelation": [
+		{
+			"field": "id_coach",
+			"entity": "coach"
+		},
+		{
+			"field": "id_marketplace",
+			"entity": "marketplace"
+		}
+	]
+}

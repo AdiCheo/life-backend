@@ -1,0 +1,21 @@
+{
+	"id": "a0bd37db-38c3-4dc0-bdd4-5a41915c0e6c",
+	"fields": [
+		{
+			"name": "terms",
+			"type": "text",
+			"read": true,
+			"write": true
+		}
+	],
+	"isRelation": [
+		{
+			"field": "id_user",
+			"entity": "user"
+		},
+		{
+			"field": "id_coach",
+			"entity": "coach"
+		}
+	]
+}

@@ -1,0 +1,670 @@
+[
+	{
+		"undo": {
+			"type": "delete_field",
+			"table": "content",
+			"value": "type"
+		},
+		"redo": {
+			"type": "create_field",
+			"table": "content",
+			"value": {
+				"name": "type",
+				"type": "text",
+				"read": true,
+				"write": true
+			},
+			"position": 1
+		}
+	},
+	{
+		"undo": {
+			"type": "add_relation",
+			"table": "user",
+			"value": {
+				"type": "hasMany",
+				"reference": {
+					"entity": "feed",
+					"field": "id_user"
+				},
+				"entity": "user"
+			}
+		},
+		"redo": {
+			"type": "delete_relation",
+			"table": "user",
+			"value": {
+				"type": "hasMany",
+				"reference": {
+					"entity": "feed",
+					"field": "id_user"
+				},
+				"entity": "user"
+			}
+		}
+	},
+	{
+		"undo": {
+			"type": "create_field",
+			"table": "feed",
+			"value": {
+				"name": "id_user",
+				"type": "number",
+				"read": true,
+				"write": true,
+				"required": true
+			},
+			"position": 1
+		},
+		"redo": {
+			"type": "delete_field",
+			"table": "feed",
+			"value": "id_user"
+		}
+	},
+	{
+		"undo": {
+			"type": "add_relation",
+			"table": "feed",
+			"value": {
+				"field": "id_user",
+				"type": "belongsTo",
+				"reference": {
+					"entity": "user",
+					"field": "id_user"
+				},
+				"entity": "feed"
+			}
+		},
+		"redo": {
+			"type": "delete_relation",
+			"table": "feed",
+			"value": {
+				"field": "id_user",
+				"type": "belongsTo",
+				"reference": {
+					"entity": "user",
+					"field": "id_user"
+				},
+				"entity": "feed"
+			}
+		}
+	},
+	{
+		"undo": {
+			"type": "delete_relation",
+			"table": "feed",
+			"value": {
+				"field": "id_user",
+				"type": "belongsTo",
+				"reference": {
+					"entity": "user",
+					"field": "id_user"
+				},
+				"entity": "feed"
+			}
+		},
+		"redo": {
+			"type": "add_relation",
+			"table": "feed",
+			"value": {
+				"field": "id_user",
+				"type": "belongsTo",
+				"reference": {
+					"entity": "user",
+					"field": "id_user"
+				},
+				"entity": "feed"
+			}
+		}
+	},
+	{
+		"undo": {
+			"type": "delete_relation",
+			"table": "user",
+			"value": {
+				"type": "hasMany",
+				"reference": {
+					"entity": "feed",
+					"field": "id_user"
+				},
+				"entity": "user"
+			}
+		},
+		"redo": {
+			"type": "add_relation",
+			"table": "user",
+			"value": {
+				"type": "hasMany",
+				"reference": {
+					"entity": "feed",
+					"field": "id_user"
+				},
+				"entity": "user"
+			}
+		}
+	},
+	{
+		"undo": {
+			"type": "create_entity",
+			"table": "question_review",
+			"value": {
+				"id": "014b74c0-8dc8-4616-a1af-26c30a5ada1d",
+				"isRelation": [
+					{
+						"field": "id_user",
+						"entity": "user"
+					},
+					{
+						"field": "id_question",
+						"entity": "question"
+					}
+				]
+			}
+		},
+		"redo": {
+			"type": "delete_entity",
+			"table": "question_review"
+		}
+	},
+	{
+		"undo": {
+			"type": "create_entity",
+			"table": "content_review",
+			"value": {
+				"id": "d4c319ef-df14-4a71-857c-93223a329f3d",
+				"isRelation": [
+					{
+						"field": "id_user",
+						"entity": "user"
+					},
+					{
+						"field": "id_content",
+						"entity": "content"
+					}
+				]
+			}
+		},
+		"redo": {
+			"type": "delete_entity",
+			"table": "content_review"
+		}
+	},
+	{
+		"undo": {
+			"type": "delete_entity",
+			"table": "recommendation_review"
+		},
+		"redo": {
+			"type": "create_entity",
+			"table": "recommendation_review",
+			"value": {
+				"id": "5b40710a-0420-41f8-a46f-4e39a9b5dc57",
+				"isRelation": [
+					{
+						"field": "id_coach",
+						"entity": "recommendation"
+					},
+					{
+						"field": "id_feed",
+						"entity": "feed"
+					}
+				]
+			}
+		}
+	},
+	{
+		"undo": {
+			"type": "delete_relation",
+			"table": "recommendation",
+			"value": {
+				"as": "id_coach",
+				"through": "recommendation_review",
+				"type": "belongsToMany",
+				"reference": {
+					"entity": "feed",
+					"as": "id_feed"
+				},
+				"entity": "recommendation"
+			}
+		},
+		"redo": {
+			"type": "add_relation",
+			"table": "recommendation",
+			"value": {
+				"as": "id_coach",
+				"through": "recommendation_review",
+				"type": "belongsToMany",
+				"reference": {
+					"entity": "feed",
+					"as": "id_feed"
+				},
+				"entity": "recommendation"
+			}
+		}
+	},
+	{
+		"undo": {
+			"type": "delete_relation",
+			"table": "feed",
+			"value": {
+				"as": "id_feed",
+				"through": "recommendation_review",
+				"type": "belongsToMany",
+				"reference": {
+					"entity": "recommendation",
+					"as": "id_coach"
+				},
+				"entity": "feed"
+			}
+		},
+		"redo": {
+			"type": "add_relation",
+			"table": "feed",
+			"value": {
+				"as": "id_feed",
+				"through": "recommendation_review",
+				"type": "belongsToMany",
+				"reference": {
+					"entity": "recommendation",
+					"as": "id_coach"
+				},
+				"entity": "feed"
+			}
+		}
+	},
+	{
+		"undo": {
+			"type": "delete_entity",
+			"table": "survey_review"
+		},
+		"redo": {
+			"type": "create_entity",
+			"table": "survey_review",
+			"value": {
+				"id": "c2da6519-017b-4654-b975-d6885e307379",
+				"isRelation": [
+					{
+						"field": "id_coach",
+						"entity": "survey"
+					},
+					{
+						"field": "id_feed",
+						"entity": "feed"
+					}
+				]
+			}
+		}
+	},
+	{
+		"undo": {
+			"type": "delete_relation",
+			"table": "survey",
+			"value": {
+				"as": "id_coach",
+				"through": "survey_review",
+				"type": "belongsToMany",
+				"reference": {
+					"entity": "feed",
+					"as": "id_feed"
+				},
+				"entity": "survey"
+			}
+		},
+		"redo": {
+			"type": "add_relation",
+			"table": "survey",
+			"value": {
+				"as": "id_coach",
+				"through": "survey_review",
+				"type": "belongsToMany",
+				"reference": {
+					"entity": "feed",
+					"as": "id_feed"
+				},
+				"entity": "survey"
+			}
+		}
+	},
+	{
+		"undo": {
+			"type": "delete_relation",
+			"table": "feed",
+			"value": {
+				"as": "id_feed",
+				"through": "survey_review",
+				"type": "belongsToMany",
+				"reference": {
+					"entity": "survey",
+					"as": "id_coach"
+				},
+				"entity": "feed"
+			}
+		},
+		"redo": {
+			"type": "add_relation",
+			"table": "feed",
+			"value": {
+				"as": "id_feed",
+				"through": "survey_review",
+				"type": "belongsToMany",
+				"reference": {
+					"entity": "survey",
+					"as": "id_coach"
+				},
+				"entity": "feed"
+			}
+		}
+	},
+	{
+		"undo": {
+			"type": "create_field",
+			"table": "marketplace",
+			"value": {
+				"name": "id_user",
+				"type": "number",
+				"read": true,
+				"write": true,
+				"required": true
+			},
+			"position": 1
+		},
+		"redo": {
+			"type": "delete_field",
+			"table": "marketplace",
+			"value": "id_user"
+		}
+	},
+	{
+		"undo": {
+			"type": "add_relation",
+			"table": "marketplace",
+			"value": {
+				"field": "id_user",
+				"type": "belongsTo",
+				"reference": {
+					"entity": "user",
+					"field": "id_user"
+				},
+				"entity": "marketplace"
+			}
+		},
+		"redo": {
+			"type": "delete_relation",
+			"table": "marketplace",
+			"value": {
+				"field": "id_user",
+				"type": "belongsTo",
+				"reference": {
+					"entity": "user",
+					"field": "id_user"
+				},
+				"entity": "marketplace"
+			}
+		}
+	},
+	{
+		"undo": {
+			"type": "add_relation",
+			"table": "user",
+			"value": {
+				"type": "hasMany",
+				"reference": {
+					"entity": "marketplace",
+					"field": "id_user"
+				},
+				"entity": "user"
+			}
+		},
+		"redo": {
+			"type": "delete_relation",
+			"table": "user",
+			"value": {
+				"type": "hasMany",
+				"reference": {
+					"entity": "marketplace",
+					"field": "id_user"
+				},
+				"entity": "user"
+			}
+		}
+	},
+	{
+		"undo": {
+			"type": "add_relation",
+			"table": "content",
+			"value": {
+				"as": "id_content",
+				"type": "belongsToMany",
+				"through": "content_review",
+				"reference": {
+					"entity": "user",
+					"as": "id_user"
+				},
+				"entity": "content"
+			}
+		},
+		"redo": {
+			"type": "delete_relation",
+			"table": "content",
+			"value": {
+				"as": "id_content",
+				"type": "belongsToMany",
+				"through": "content_review",
+				"reference": {
+					"entity": "user",
+					"as": "id_user"
+				},
+				"entity": "content"
+			}
+		}
+	},
+	{
+		"undo": {
+			"type": "add_relation",
+			"table": "user",
+			"value": {
+				"as": "id_user",
+				"type": "belongsToMany",
+				"through": "content_review",
+				"reference": {
+					"entity": "content",
+					"as": "id_content"
+				},
+				"entity": "user"
+			}
+		},
+		"redo": {
+			"type": "delete_relation",
+			"table": "user",
+			"value": {
+				"as": "id_user",
+				"type": "belongsToMany",
+				"through": "content_review",
+				"reference": {
+					"entity": "content",
+					"as": "id_content"
+				},
+				"entity": "user"
+			}
+		}
+	},
+	{
+		"undo": {
+			"type": "add_relation",
+			"table": "question",
+			"value": {
+				"as": "id_question",
+				"type": "belongsToMany",
+				"through": "question_review",
+				"reference": {
+					"entity": "user",
+					"as": "id_user"
+				},
+				"entity": "question"
+			}
+		},
+		"redo": {
+			"type": "delete_relation",
+			"table": "question",
+			"value": {
+				"as": "id_question",
+				"type": "belongsToMany",
+				"through": "question_review",
+				"reference": {
+					"entity": "user",
+					"as": "id_user"
+				},
+				"entity": "question"
+			}
+		}
+	},
+	{
+		"undo": {
+			"type": "add_relation",
+			"table": "user",
+			"value": {
+				"as": "id_user",
+				"type": "belongsToMany",
+				"through": "question_review",
+				"reference": {
+					"entity": "question",
+					"as": "id_question"
+				},
+				"entity": "user"
+			}
+		},
+		"redo": {
+			"type": "delete_relation",
+			"table": "user",
+			"value": {
+				"as": "id_user",
+				"type": "belongsToMany",
+				"through": "question_review",
+				"reference": {
+					"entity": "question",
+					"as": "id_question"
+				},
+				"entity": "user"
+			}
+		}
+	},
+	{
+		"undo": {
+			"type": "delete_field",
+			"table": "coach",
+			"value": "author"
+		},
+		"redo": {
+			"type": "create_field",
+			"table": "coach",
+			"value": {
+				"name": "author",
+				"type": "text",
+				"read": true,
+				"write": true
+			},
+			"position": 3
+		}
+	},
+	{
+		"undo": {
+			"type": "delete_field",
+			"table": "marketplace",
+			"value": "curator"
+		},
+		"redo": {
+			"type": "create_field",
+			"table": "marketplace",
+			"value": {
+				"name": "curator",
+				"type": "text",
+				"read": true,
+				"write": true
+			},
+			"position": 1
+		}
+	},
+	{
+		"undo": {
+			"type": "rename_entity",
+			"table": "subscribe",
+			"value": "pledge"
+		},
+		"redo": {
+			"type": "rename_entity",
+			"table": "pledge",
+			"value": "subscribe"
+		}
+	},
+	{
+		"undo": {
+			"type": "change_field",
+			"table": "user",
+			"name": "email",
+			"value": {
+				"name": "username",
+				"type": "text",
+				"read": true,
+				"write": true,
+				"unique": "username",
+				"required": true
+			}
+		},
+		"redo": {
+			"type": "change_field",
+			"table": "user",
+			"name": "username",
+			"value": {
+				"name": "email",
+				"type": "text",
+				"read": true,
+				"write": true,
+				"unique": "username",
+				"required": true
+			}
+		}
+	},
+	{
+		"undo": {
+			"type": "delete_field",
+			"table": "content",
+			"value": "name"
+		},
+		"redo": {
+			"type": "create_field",
+			"table": "content",
+			"value": {
+				"name": "name",
+				"type": "text",
+				"read": true,
+				"write": true
+			},
+			"position": 2
+		}
+	},
+	{
+		"undo": {
+			"type": "change_field",
+			"table": "content",
+			"name": "link",
+			"value": {
+				"name": "type",
+				"type": "text",
+				"read": true,
+				"write": true
+			}
+		},
+		"redo": {
+			"type": "change_field",
+			"table": "content",
+			"name": "type",
+			"value": {
+				"name": "link",
+				"type": "text",
+				"read": true,
+				"write": true
+			}
+		}
+	}
+]

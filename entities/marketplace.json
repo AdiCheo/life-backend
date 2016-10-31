@@ -1,0 +1,32 @@
+{
+	"id": "c58d4631-d946-4e5b-9183-d49f76735a06",
+	"fields": [
+		{
+			"name": "id_marketplace",
+			"type": "number",
+			"read": true,
+			"write": false,
+			"primary": true,
+			"unique": true,
+			"required": true,
+			"autoIncrement": true
+		},
+		{
+			"name": "curator",
+			"type": "text",
+			"read": true,
+			"write": true
+		}
+	],
+	"relations": [
+		{
+			"as": "id_marketplace",
+			"type": "belongsToMany",
+			"through": "program",
+			"reference": {
+				"entity": "coach",
+				"as": "id_coach"
+			}
+		}
+	]
+}

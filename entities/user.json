@@ -1,0 +1,61 @@
+{
+	"id": "dbf26fae-7de2-4bec-b63a-b7a50766311f",
+	"fields": [
+		{
+			"name": "id_user",
+			"type": "number",
+			"read": true,
+			"write": false,
+			"primary": true,
+			"unique": true,
+			"required": true,
+			"autoIncrement": true
+		},
+		{
+			"name": "email",
+			"type": "text",
+			"read": true,
+			"write": true,
+			"unique": "username",
+			"required": true
+		},
+		{
+			"name": "password",
+			"type": "text",
+			"read": true,
+			"write": true
+		}
+	],
+	"relations": [
+		{
+			"type": "hasMany",
+			"reference": {
+				"entity": "preferences",
+				"field": "id_visitor"
+			}
+		},
+		{
+			"as": "id_user",
+			"type": "belongsToMany",
+			"through": "pledge",
+			"reference": {
+				"entity": "coach",
+				"as": "id_coach"
+			}
+		},
+		{
+			"type": "hasMany",
+			"reference": {
+				"entity": "contactinfo",
+				"field": "id_user"
+			}
+		},
+		{
+			"type": "hasMany",
+			"reference": {
+				"entity": "feed",
+				"field": "id_user"
+			}
+		}
+	]
+}

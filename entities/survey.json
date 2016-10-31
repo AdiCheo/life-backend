@@ -1,0 +1,24 @@
+{
+	"id": "2a2d63cc-ec97-4d0b-a21e-0a950898c8c5",
+	"isRelation": [
+		{
+			"field": "id_question",
+			"entity": "question"
+		},
+		{
+			"field": "id_coach",
+			"entity": "coach"
+		}
+	],
+	"relations": [
+		{
+			"as": "id_coach",
+			"type": "belongsToMany",
+			"through": "survey_review",
+			"reference": {
+				"entity": "feed",
+				"as": "id_feed"
+			}
+		}
+	]
+}

@@ -1,0 +1,25 @@
+{
+	"id": "2abd14f0-2d3d-49ca-b7c9-678b693f334c",
+	"fields": [
+		{
+			"name": "id_preferences",
+			"type": "number",
+			"read": true,
+			"write": false,
+			"primary": true,
+			"unique": true,
+			"required": true,
+			"autoIncrement": true
+		}
+	],
+	"relations": [
+		{
+			"field": "id_visitor",
+			"type": "belongsTo",
+			"reference": {
+				"entity": "user",
+				"field": "id_user"
+			}
+		}
+	]
+}

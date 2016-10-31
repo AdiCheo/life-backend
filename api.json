@@ -1,0 +1,66 @@
+[
+	{
+		"method": "get",
+		"url": "/users",
+		"query": {
+			"entity": "user",
+			"id": "list"
+		}
+	},
+	{
+		"method": "get",
+		"url": "/programs",
+		"query": {
+			"entity": "program",
+			"id": "list"
+		}
+	},
+	{
+		"method": "get",
+		"url": "/coaches",
+		"query": {
+			"entity": "coach",
+			"id": "list"
+		}
+	},
+	{
+		"method": "put",
+		"url": "/user",
+		"query": {
+			"entity": "user",
+			"id": "create"
+		}
+	},
+	{
+		"method": "post",
+		"url": "/user",
+		"query": {
+			"entity": "user",
+			"id": "update"
+		}
+	},
+	{
+		"method": "delete",
+		"url": "/user",
+		"query": {
+			"entity": "user",
+			"id": "delete"
+		}
+	},
+	{
+		"method": "get",
+		"url": "/feed",
+		"query": {
+			"entity": "content",
+			"id": "list"
+		}
+	},
+	{
+		"method": "post",
+		"url": "/login",
+		"query": {
+			"entity": "user",
+			"id": "get"
+		}
+	}
+]

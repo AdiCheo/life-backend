@@ -1,0 +1,38 @@
+{
+	"id": "c6fc7067-b503-469a-ab14-7c2f3e1f9981",
+	"fields": [
+		{
+			"name": "id_question",
+			"type": "number",
+			"read": true,
+			"write": false,
+			"primary": true,
+			"unique": true,
+			"required": true,
+			"autoIncrement": true
+		},
+		{
+			"name": "Question",
+			"type": "text",
+			"read": true,
+			"write": true
+		},
+		{
+			"name": "Response",
+			"type": "text",
+			"read": true,
+			"write": true
+		}
+	],
+	"relations": [
+		{
+			"as": "id_question",
+			"type": "belongsToMany",
+			"through": "survey",
+			"reference": {
+				"entity": "coach",
+				"as": "id_coach"
+			}
+		}
+	]
+}

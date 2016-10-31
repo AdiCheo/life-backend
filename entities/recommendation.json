@@ -1,0 +1,24 @@
+{
+	"id": "3b06e5bb-e619-4a20-8558-86f3ab135345",
+	"isRelation": [
+		{
+			"field": "id_content",
+			"entity": "content"
+		},
+		{
+			"field": "id_coach",
+			"entity": "coach"
+		}
+	],
+	"relations": [
+		{
+			"as": "id_coach",
+			"type": "belongsToMany",
+			"through": "recommendation_review",
+			"reference": {
+				"entity": "feed",
+				"as": "id_feed"
+			}
+		}
+	]
+}

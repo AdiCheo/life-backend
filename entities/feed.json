@@ -1,0 +1,43 @@
+{
+	"id": "9f2a986e-7509-4fae-af4f-5f86281ab478",
+	"fields": [
+		{
+			"name": "id_feed",
+			"type": "number",
+			"read": true,
+			"write": false,
+			"primary": true,
+			"unique": true,
+			"required": true,
+			"autoIncrement": true
+		}
+	],
+	"relations": [
+		{
+			"field": "id_user",
+			"type": "belongsTo",
+			"reference": {
+				"entity": "user",
+				"field": "id_user"
+			}
+		},
+		{
+			"as": "id_feed",
+			"type": "belongsToMany",
+			"through": "recommendation_review",
+			"reference": {
+				"entity": "recommendation",
+				"as": "id_coach"
+			}
+		},
+		{
+			"as": "id_feed",
+			"type": "belongsToMany",
+			"through": "survey_review",
+			"reference": {
+				"entity": "survey",
+				"as": "id_coach"
+			}
+		}
+	]
+}

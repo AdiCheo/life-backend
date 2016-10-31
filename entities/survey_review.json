@@ -1,0 +1,13 @@
+{
+	"id": "c2da6519-017b-4654-b975-d6885e307379",
+	"isRelation": [
+		{
+			"field": "id_coach",
+			"entity": "survey"
+		},
+		{
+			"field": "id_feed",
+			"entity": "feed"
+		}
+	]
+}

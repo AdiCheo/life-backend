@@ -1,0 +1,71 @@
+{
+	"id": "1fe71913-f0ec-48ad-8bb5-327a5c784e18",
+	"fields": [
+		{
+			"name": "id_coach",
+			"type": "number",
+			"read": true,
+			"write": false,
+			"primary": true,
+			"unique": true,
+			"required": true,
+			"autoIncrement": true
+		},
+		{
+			"name": "name",
+			"type": "text",
+			"read": true,
+			"write": true
+		},
+		{
+			"name": "description",
+			"type": "text",
+			"read": true,
+			"write": true
+		},
+		{
+			"name": "author",
+			"type": "text",
+			"read": true,
+			"write": true
+		}
+	],
+	"relations": [
+		{
+			"as": "id_coach",
+			"type": "belongsToMany",
+			"through": "pledge",
+			"reference": {
+				"entity": "user",
+				"as": "id_user"
+			}
+		},
+		{
+			"as": "id_coach",
+			"type": "belongsToMany",
+			"through": "program",
+			"reference": {
+				"entity": "marketplace",
+				"as": "id_marketplace"
+			}
+		},
+		{
+			"as": "id_coach",
+			"type": "belongsToMany",
+			"through": "survey",
+			"reference": {
+				"entity": "question",
+				"as": "id_question"
+			}
+		},
+		{
+			"as": "id_coach",
+			"type": "belongsToMany",
+			"through": "recommendation",
+			"reference": {
+				"entity": "content",
+				"as": "id_content"
+			}
+		}
+	]
+}

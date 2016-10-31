@@ -1,0 +1,38 @@
+{
+	"id": "feb2441f-635f-45aa-a02c-7b8e25991493",
+	"fields": [
+		{
+			"name": "id_content",
+			"type": "number",
+			"read": true,
+			"write": false,
+			"primary": true,
+			"unique": true,
+			"required": true,
+			"autoIncrement": true
+		},
+		{
+			"name": "link",
+			"type": "text",
+			"read": true,
+			"write": true
+		},
+		{
+			"name": "name",
+			"type": "text",
+			"read": true,
+			"write": true
+		}
+	],
+	"relations": [
+		{
+			"as": "id_content",
+			"type": "belongsToMany",
+			"through": "recommendation",
+			"reference": {
+				"entity": "coach",
+				"as": "id_coach"
+			}
+		}
+	]
+}

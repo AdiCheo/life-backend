@@ -1,0 +1,25 @@
+{
+	"id": "dcb834e1-e8aa-4b64-a4a9-116aa5d8268b",
+	"fields": [
+		{
+			"name": "id_contactinfo",
+			"type": "number",
+			"read": true,
+			"write": false,
+			"primary": true,
+			"unique": true,
+			"required": true,
+			"autoIncrement": true
+		}
+	],
+	"relations": [
+		{
+			"field": "id_user",
+			"type": "belongsTo",
+			"reference": {
+				"entity": "user",
+				"field": "id_user"
+			}
+		}
+	]
+}

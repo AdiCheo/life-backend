@@ -1,0 +1,13 @@
+{
+	"id": "5b40710a-0420-41f8-a46f-4e39a9b5dc57",
+	"isRelation": [
+		{
+			"field": "id_coach",
+			"entity": "recommendation"
+		},
+		{
+			"field": "id_feed",
+			"entity": "feed"
+		}
+	]
+}
